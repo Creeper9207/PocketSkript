@@ -378,52 +378,72 @@ class Skript extends PluginBase implements Listener {
             'kill %entities%'
         ),
         16 => array(
-            
+            'strike [lightning ]%directions% %locations%'
         ),
         17 => array(
-            
+            'log %texts% [(to|in) [file[s]] %texts%]'
         ),
         18 => array(
-            
+            '(message|send [message]) %texts% [to %players/console%]'
         ),
         19 => array(
-            
+            'de(-| )op %offline players%',
+            'op %offline players%'
         ),
         20 => array(
-            
+            '[(open|show) ((crafting [table]|workbench) (view|window|inventory)]|%inventory%) (to|for) %players%',
+            'close [the] inventory [view] (to|of|for) %players%',
+            "close %players%'[s] inventory [view]"
         ),
         21 => array(
-            
+            '(play|show) %visual effects% (on|%directions%) %entities/locations% [to %players%]'
         ),
         22 => array(
-            
+            'poison %living entities% [for %time span%]',
+            '(cure|unpoison) %living entities% [(from|of) poison]'
         ),
         23 => array(
-            
+            'apply [potion of] %potions% [potion] [[[of] tier] %number%] to %living entities% [for %time span%]'
         ),
         24 => array(
-            
+            '(push|thrust) %entities% %direction% [(at|with) (speed|velocity|force) %number%]'
         ),
         25 => array(
-            
+            'enable PvP [in %worlds%]',
+            'disable PVP [in %worlds%]'
         ),
         26 => array(
-            
+            'replace [(all|every)] %texts% in %text% with %text%',
+            'replace [(all|every)] %texts% with %text% in %text%'
         ),
         27 => array(
-            
+            'shear %living entities%',
+            'un[-]shear %living entities%'
         ),
         28 => array(
-            
+            'shoot %entity types% [from %living entities/locations%] [(at|with) (speed|velocity) %number%] [%direction%]',
+            '(make|let) %living entities/locations% shoot %entity types% [(at|with) (speed|velocity) %number%] [%direction%]'
         ),
         29 => array(
-            
+            'spawn %entity types% [%directions% %locations%]',
+            'spawn %number% of %entity types% [%directions% %locations%]'
         ),
         30 => array(
-            
+            'teleport %entities% (to|%direction%) %location%'
         ),
         31 => array(
-            
+            '(close|turn off|de[-]activate) %blocks%',
+            '(toggle|switch) [[the] state of] %blocks%',
+            '(open|turn on|activate) %blocks%'
+        ),
+        32 => array(
+            '(grow|create|generate) tree [of type %tree type%] %directions% %locations%',
+            '(grow|create|generate) %tree type% [tree] %directions% %locations%'
+        ),
+        33 => array(
+            '(make|let|force) %entities% [to] (ride|mount) [(in|on)] %entity/entity types%',
+            '[(make|let|force) %entities% [to] (dismount|(dismount|leave) (from|of)] [(any|the[ir]|his|her)] vehicle[s])',
+            '[(eject|dismount) (any|the)] passenger[s] (of|from) %entities%'
         ),
     );
     
