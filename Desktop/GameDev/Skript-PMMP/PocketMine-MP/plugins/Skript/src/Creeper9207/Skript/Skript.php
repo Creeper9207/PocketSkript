@@ -93,214 +93,49 @@ class Skript extends PluginBase implements Listener {
     //0=required
     //1=optional
     
-    public $EffectsMaybe = array(
-        
-        0  => array(
-            array(
-                'ban % by reason of %',
-                'ban % because %', 
-                'ban % because of %', 
-                'ban % on account of %', 
-                'ban % due to %', 
-                'ban %'
-            ), 
-            array(
-                'unban % by ip',
-                'ip-unban %',
-                'un-ip-ban %',
-                'un ip ban %',
-                'ip unban'
-            ), 
-            array(
-                'ban % by ip reason of %',
-                'ban % by ip because %', 
-                'ban % by ip because of %', 
-                'ban % by ip on account of %', 
-                'ban % by ip due to %', 
-                'ban % by ip',
-                'ip-ban % by reason of %',
-                'ip-ban % because %', 
-                'ip-ban % because of %', 
-                'ip-ban % on account of %', 
-                'ip-ban % due to %', 
-                'ip-ban %',
-                'ip ban % by reason of %',
-                'ip ban % because %', 
-                'ip ban % because of %', 
-                'ip ban % on account of %', 
-                'ip ban % due to %', 
-                'ip ban %'
-            ),
-            array(
-                'unban %'
-            )
-        ),
-        1  => array(
-            array(
-                'broadcast %',
-                'broadcast % in %',
-                'broadcast % to %'
-            )
-        ),
-        2  => array(
-            array(
-                'cancel event',
-                'cancel the event'
-            ),
-            array(
-                'uncancel event',
-                'uncancel the event'
-            )
-        ),
-        3  => array(
-            array(
-                'add % to %',
-                'give % to %'
-            ),
-            array(
-                'increase % by %'
-            ),
-            array(
-              'give % %'  
-            ),
-            array(
-              'set % to %'
-            ),
-            array(
-                'remove all % from %',
-                'remove every % from %'
-            ),
-            array(
-                'remove % from %',
-                'subtract % from %'
-            ),
-            array(
-                'reduce % by %'
-            ),
-            array(
-                'delete %',
-                'clear %'
-            ),
-            array(
-                'reset %'
-            )
-            
-        ),
-        4  => array(
-            array(
-                'dye % %',
-                'color % %',
-                'colour % %',
-                'paint % %'
-            ),
-            array(
-                'dye % % % %',
-                'paint % % % %',
-                'color % % % %',
-                'colour % % % %',
-            )
-        ),
-        5  => array(
-            array(
-                'execute the command % by %',
-                'execute command % by %',
-                'execute the command %',
-                'execute command %',
-                'command %',
-                'command % by %',
-                '% command %',
-                'execute the % command %',
-                'execute % command %',
-                'make % execute the command %',
-                'make % execute command %',
-                'make % execute %',
-            )
-        ),
-        6  => array(
-            array(
-                'damage % by % hearts',
-                'damage % by % heart',
-                'damage % by %'
-            ),
-            array(
-                'heal %',
-                'heal % by %',
-                'heal % by % heart',
-                'heal % by % hearts'
-            ),
-            array(
-                'repair %',
-                'repair % by %'
-            )
-        ),
-        7  => array(
-            array(
-                'wait for % %',
-                'wait for %',
-                'wait % %',
-                'wait %',
-                'halt for % %',
-                'halt for %',
-                'half % %',
-                'halt %'
-            )
-        ),
-        8  => array(
-            array(
-                'drop %',
-                'drop % %'
-            )
-        ),
-        9  => array(
-            array(
-                'enchant % with %',
-            ),
-            array(
-                'disenchant %',
-            )
-        ),
-        10 => array(
-            array(
-                'equip % with %',
-                'equip with %',
-                'make % wear %'
-            ),
-        ),
-        11 => array(
-            array(
-                'exit',
-                'stop',
-                'exit trigger',
-                'stop trigger'
-            )
-        ),
-        12 => array(
-            array(
-                'create an explosion of force %',
-                'create an explosion of force % %'
-            )
-        ),
-        13 => array(),
-        14 => array(),
-        15 => array(),
-        16 => array(),
-        17 => array(),
-        18 => array(),
-        19 => array(),
-        20 => array(),
-        21 => array(),
-        22 => array(),
-        23 => array(),
-        24 => array(),
-        25 => array(),
-        26 => array(),
-        27 => array(),
-        28 => array(),
-        29 => array(),
-        30 => array(),
-        31 => array(),
-    );
     
+    public $Types = array(
+        
+        0  => 'Biome',
+        1  => 'Block',
+        2  => 'Chunk',
+        3  => 'Colour',
+        4  => 'Color',
+        5  => 'Command Sender',
+        6  => 'Damage Cause',
+        7  => 'Biome',
+        8  => 'Biome',
+        9  => 'Biome',
+        10 => 'Biome',
+        11 => 'Biome',
+        12 => 'Biome',
+        13 => 'Biome',
+        14 => 'Biome',
+        15 => 'Biome',
+        16 => 'Biome',
+        17 => 'Biome',
+        18 => 'Biome',
+        19 => 'Biome',
+        20 => 'Biome',
+        21 => 'Biome',
+        22 => 'Biome',
+        23 => 'Biome',
+        24 => 'Biome',
+        25 => 'Biome',
+        26 => 'Biome',
+        27 => 'Biome',
+        28 => 'Biome',
+        29 => 'Biome',
+        30 => 'Biome',
+        31 => 'Biome',
+        32 => 'Biome',
+        33 => 'Biome',
+        34 => 'Biome',
+        35 => 'Biome',
+        36 => 'Biome',
+        37 => 'Biome',
+        
+    );
     public $Effects = array(
         
         0  => array(
@@ -444,7 +279,7 @@ class Skript extends PluginBase implements Listener {
             '(make|let|force) %entities% [to] (ride|mount) [(in|on)] %entity/entity types%',
             '[(make|let|force) %entities% [to] (dismount|(dismount|leave) (from|of)] [(any|the[ir]|his|her)] vehicle[s])',
             '[(eject|dismount) (any|the)] passenger[s] (of|from) %entities%'
-        ),
+        )
     );
     
     public $Events = array(
@@ -612,8 +447,9 @@ class Skript extends PluginBase implements Listener {
         };
         
         $Expected = 0;
+        $LoopCount=0;
         foreach (file('plugins/Skript/scripts/test.sk') as $lineKey => $line) {
-            
+            $LoopCount = $LoopCount + 1;
             $ColonTest = substr(trim($line), -1);
             $Indentation = strspn($line, "\t");
             
@@ -623,6 +459,34 @@ class Skript extends PluginBase implements Listener {
                 } else {
                    $tLine = str_replace(' ', 'X_OBJ_SPACE', $line);
                    $tLine = str_replace('X_OBJ_SPACE', ' ', preg_replace('/\s+/', '', $tLine));
+                   
+                   /*
+                    * Convert to Skript-I
+                    * 
+                    * What's Skript-I? It's what effects are converted to on reload to save time
+                    * 
+                    * an effect like teleport player to block below player would become
+                    * 
+                    * eff 30 (player) (to block below player)
+                    * 
+                    * because teleport is effect 30 in the effects Index
+                    * 
+                    */
+                   
+                   
+                   foreach($this->Effects as $patterns) {
+                       foreach ($patterns as $pattern) {
+                           $pattern = str_replace(' ', '[ ]', $pattern);
+                           
+                           
+                       }
+                   }
+                   
+                   
+                   /*
+                    * finalize 
+                    */
+                   
                    $Chunks[$Chunk] = $Chunks[$Chunk] . $tLine . "\n";
                 
                 }
@@ -667,20 +531,27 @@ class Skript extends PluginBase implements Listener {
                 
                 $tLine = str_replace(' ', 'X_OBJ_SPACE', $line);
                 $tLine = str_replace('X_OBJ_SPACE', ' ', preg_replace('/\s+/', '', $tLine));
+                $this->Matched=FALSE;
                 
-                foreach ($Events as $eventKey => $eventArray) {
+                foreach ($this->Events as $eventKey => $eventArray) {
                     foreach($eventArray as $eventName) {
                         if (stristr($tLine, $eventName) !== FALSE) {
                             
+                   
                             $this->EventChunks[$EventIterator] = array('Chunk' => $Chunk, 'ID' => $eventKey, 'Event' => $eventName);
                             $EventIterator = $EventIterator + 1;
+                            $this->Matched=TRUE;
                             
                             
                         }   
                     }
                 }
                 
-                $Chunks[$Chunk] = $Chunks[$Chunk] . $tLine . "\n";
+                if ($this->Matched !== TRUE) {
+                   echo '[Skript] Error @ line '.$LoopCount.': there is no registered event matching "'.$tLine.'"!'."\n";
+                }
+                
+                //$Chunks[$Chunk] = $Chunks[$Chunk] . $tLine . "\n";
             } else {
                 
             }
@@ -688,6 +559,7 @@ class Skript extends PluginBase implements Listener {
         
         foreach ($Chunks as $lineKey => $line) {
            
+            echo $line;
             
         }
         
@@ -702,11 +574,11 @@ class Skript extends PluginBase implements Listener {
 
     public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
         if (strtolower($command->getName()) === "skript") {
-            $sender->sendMessage("Usage: Â§7/Â§6skript Â§b...");
-            $sender->sendMessage(" Â§breload Â§7- Â§f Reloads the config, all scripts, everything, or a specific script");
-            $sender->sendMessage(" Â§benable Â§7- Â§fEnables all scripts or a specific one");
-            $sender->sendMessage(" Â§bupdate Â§7- Â§fCheck for updates, read the changelog, or download the latest version of skript");
-            $sender->sendMessage(" Â§bhelp Â§7- Â§fPrints this help message. Use '/skript reload/enable/disable/update' to get more info");
+            $sender->sendMessage("Usage: Ã‚Â§7/Ã‚Â§6skript Ã‚Â§b...");
+            $sender->sendMessage(" Ã‚Â§breload Ã‚Â§7- Ã‚Â§f Reloads the config, all scripts, everything, or a specific script");
+            $sender->sendMessage(" Ã‚Â§benable Ã‚Â§7- Ã‚Â§fEnables all scripts or a specific one");
+            $sender->sendMessage(" Ã‚Â§bupdate Ã‚Â§7- Ã‚Â§fCheck for updates, read the changelog, or download the latest version of skript");
+            $sender->sendMessage(" Ã‚Â§bhelp Ã‚Â§7- Ã‚Â§fPrints this help message. Use '/skript reload/enable/disable/update' to get more info");
             return true;
         }
 
