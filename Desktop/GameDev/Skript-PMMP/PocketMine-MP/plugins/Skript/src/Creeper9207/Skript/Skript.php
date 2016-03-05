@@ -96,45 +96,47 @@ class Skript extends PluginBase implements Listener {
     
     public $Types = array(
         
-        0  => 'Biome',
-        1  => 'Block',
-        2  => 'Chunk',
-        3  => 'Colour',
-        4  => 'Color',
-        5  => 'Command Sender',
-        6  => 'Damage Cause',
-        7  => 'Biome',
-        8  => 'Biome',
-        9  => 'Biome',
-        10 => 'Biome',
-        11 => 'Biome',
-        12 => 'Biome',
-        13 => 'Biome',
-        14 => 'Biome',
-        15 => 'Biome',
-        16 => 'Biome',
-        17 => 'Biome',
-        18 => 'Biome',
-        19 => 'Biome',
-        20 => 'Biome',
-        21 => 'Biome',
-        22 => 'Biome',
-        23 => 'Biome',
-        24 => 'Biome',
-        25 => 'Biome',
-        26 => 'Biome',
-        27 => 'Biome',
-        28 => 'Biome',
-        29 => 'Biome',
-        30 => 'Biome',
-        31 => 'Biome',
-        32 => 'Biome',
-        33 => 'Biome',
-        34 => 'Biome',
-        35 => 'Biome',
-        36 => 'Biome',
-        37 => 'Biome',
-        
+         0 => array('Biome'),
+         1 => array('Block'),
+         2 => array('Chunk'),
+         3 => array('Colour'),
+         4 => array('Color'),
+         5 => array('Command Sender'),
+         6 => array('Damage Cause'),
+         7 => array('Date'),
+         8 => array('Direction'),
+         9 => array('Enchantment'),
+        10 => array('Enchantment Type'),
+        11 => array('Entity', 'Entitie', 'mount', 'passenger', 'attacker', 'victim'),
+        12 => array('Entity Type'),
+        13 => array('Entity Type with Amount'),
+        14 => array('Experience'),
+        15 => array('Game Mode'),
+        16 => array('Inventory'),
+        17 => array('Inventory Slot'),
+        18 => array('Item'),
+        19 => array('Material'),
+        20 => array('Item Type'),
+        21 => array('Living Entity'),
+        22 => array('Location'),
+        23 => array('Money'),
+        24 => array('Number'),
+        25 => array('Object'),
+        26 => array('Offline Player'),
+        27 => array('Player'),
+        28 => array('Potion Effect Type'),
+        29 => array('Projectile'),
+        30 => array('Region'),
+        31 => array('Text'),
+        32 => array('Time'),
+        33 => array('Time Period'),
+        34 => array('Time Span'),
+        35 => array('Tree Type'),
+        36 => array('Type'),
+        37 => array('Visual Effect'),
+        38 => array('Weather Type'),
+        39 => array('World'),
+        40 => array('Potion')
     );
     public $Effects = array(
         
@@ -371,7 +373,8 @@ class Skript extends PluginBase implements Listener {
     
 
     public function onEnable() {
-        
+        $ran=false;
+        echo "Starting Skript";
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->EventChunks = array();
         
@@ -473,13 +476,39 @@ class Skript extends PluginBase implements Listener {
                     * 
                     */
                    
-                   
-                   foreach($this->Effects as $patterns) {
+                   if ($ran==false) {
+                   $ran=true;
+                   $this->count=0;
+                   foreach($this->Effects as $pk => $patterns) {
+                       echo "HHHHHHHHHHHHHHH".$pk."\n";
                        foreach ($patterns as $pattern) {
+                          
+                           foreach($this->Types as $TypeKey => $TypeInner){
+                                foreach ($TypeInner as $Type) {
+                                    $pattern = str_ireplace($Type, $TypeKey, $pattern);
+                                }
+                           }
                            $pattern = str_replace(' ', '[ ]', $pattern);
+                           echo $pattern."\n";
+                           preg_match_all('/\[(?>[^][]++|(?R))*]/', $pattern, $matches);
+                           //print_r($matches);
+                           
+                           foreach($matches as $matchx) {
+                               foreach ($matchx as $match) {
+                               $this->count=$this->count+1;
+                               $pattern = str_ireplace($match, "%e".$this->count."e%", $pattern);
+                               //print_r($match);
+                               echo $this->count."\n";
+                               //echo $pattern."\n";
+                               echo $match."\n";
+                               }
+                           }
+                           
                            
                            
                        }
+                       break;
+                   }
                    }
                    
                    
@@ -555,6 +584,7 @@ class Skript extends PluginBase implements Listener {
             } else {
                 
             }
+            
         }
         
         foreach ($Chunks as $lineKey => $line) {
